@@ -1,7 +1,8 @@
-import { CREATE_USER_TYPE } from '../../actions/index';
+import { CREATE_USER_TYPE, TOGGLE_BUTTON_TYPE } from '../../actions/index';
 
 const INITIAL_STATE = {
-  username: {},
+  user: '',
+  isButtonDisabled: true,
 };
 
 const signUpReducer = (state = INITIAL_STATE, action) => {
@@ -10,6 +11,12 @@ const signUpReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: action.user,
+      }
+    }
+    case TOGGLE_BUTTON_TYPE: {
+      return {
+        ...state,
+        isButtonDisabled: action.isDisabled,
       }
     }
     default:
