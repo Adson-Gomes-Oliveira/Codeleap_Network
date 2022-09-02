@@ -1,4 +1,4 @@
-const CREATE_USER_TYPE = 'CREATE_USER';
+export const CREATE_USER_TYPE = 'CREATE_USER';
 
 export const createUser = (username) => {
   return {

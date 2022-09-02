@@ -1,4 +1,4 @@
-import CREATE_USER_TYPE from '../../actions/index';
+import { CREATE_USER_TYPE } from '../../actions/index';
 
 const INITIAL_STATE = {
   username: {},
