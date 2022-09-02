@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { createUser, toggleButton } from '../actions/index';
 import './style.signup.css';
@@ -7,6 +8,7 @@ import './style.signup.css';
 const SignUp = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.signUpReducer);
+  const navigate = useNavigate();
 
   const { user, isButtonDisabled } = state;
 
@@ -18,6 +20,8 @@ const SignUp = () => {
       dispatch(toggleButton(true));
     }
   }, [isButtonDisabled, user, dispatch]);
+
+  const handleClick = () => navigate('/home');
 
   const handleInput = (event) => {
     const { value } = event.target;
@@ -39,6 +43,7 @@ const SignUp = () => {
         </label>
         <button
           type="button"
+          onClick={handleClick}
           disabled={isButtonDisabled}
         >
           ENTER
