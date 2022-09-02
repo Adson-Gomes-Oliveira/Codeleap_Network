@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { createUser, toggleButton } from '../actions/index';
+import CodeLeapLogo from '../assets/codeleap-logo.png';
 import './style.signup.css';
 
 const SignUp = () => {
@@ -30,6 +31,7 @@ const SignUp = () => {
 
   return (
     <section className="sign-up-section">
+      <img src={CodeLeapLogo} alt='CoadLeap Logo' />
       <div className="sign-up-modal">
         <h1>Welcome to CodeLeap network!</h1>
         <label className="sign-up-label" htmlFor="username-input">

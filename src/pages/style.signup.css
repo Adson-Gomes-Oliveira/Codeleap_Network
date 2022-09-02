@@ -4,7 +4,11 @@
 
 @layer base {
   .sign-up-section {
-    @apply h-screen flex items-center justify-center;
+    @apply h-screen flex flex-col items-center justify-center;
+  }
+
+  .sign-up-section img {
+    @apply w-64 mb-5;
   }
 
   .sign-up-modal {
