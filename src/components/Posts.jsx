@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux';
 import {v4 as uuidv4} from 'uuid';
 import moment from 'moment';
 
@@ -6,6 +7,9 @@ const INTERVAL_TO_UPDATE = 1000 * 60 * 1;
 
 const Posts = ({data}) => {
   const [ timeNow, setTimeNow ] = useState(new Date());
+  const state = useSelector((state) => state.signUpReducer);
+
+  const { user } = state;
 
   const postTime = (datetime) => {
     const now = moment(timeNow);
@@ -28,17 +32,24 @@ const Posts = ({data}) => {
     }
   }, [])
 
+  const handleEdit = (id) => {
+    const postUser = data[id - 1].username;
+    const activeUser = user;
+
+    if (postUser === activeUser) {}
+  };
+
   return(
     <section className="post-section">
       {data.map((post) => {
-        const { title, content, datetime, username } = post;
+        const { id, title, content, datetime, username } = post;
 
         return(
           <div key={uuidv4()} className="post">
             <div className="post-header">
               <h2>{title}</h2>
               <div className="header-icons">
-                <button type="button">
+                <button type="button" onClick={handleEdit(id)}>
                   <span className="material-icons-outlined delete-icon">
                     delete_forever
                   </span>

@@ -1,4 +1,4 @@
-import { CREATE_POST_TYPE, STORE_POST_INPUTS } from ".";
+import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_POPUP_TYPE } from ".";
 
 export const storePostInputs = (input) => {
   console.log(input);
@@ -18,5 +18,12 @@ export const createPost = (postInfos) => {
       datetime,
       username,
     },
+  }
+}
+
+export const togglePopup = (isPopupActive) => {
+  return {
+    type: TOGGLE_POPUP_TYPE,
+    isPopupActive,
   }
 }

@@ -1,9 +1,10 @@
-import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_BUTTON_TYPE } from "../../actions";
+import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_BUTTON_TYPE, TOGGLE_POPUP_TYPE } from "../../actions";
 
 const INITIAL_STATE = {
   title: '',
   content: '',
   post: [{
+    id: 1,
     title: 'Make your first post',
     content: `Just tell us what is in your heart or mind,
     on the console above you can create posts by choose a Title,
@@ -12,6 +13,12 @@ const INITIAL_STATE = {
     username: 'root',
   }],
   isButtonDisabled: true,
+  isPopupActive: {
+    switch: true,
+    editMode: true,
+    deleteMode: false,
+    unvalidUserMode: false,
+  },
 }
 
 const homepageReducer = (state = INITIAL_STATE, action) => {
@@ -28,7 +35,10 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         ...state,
         post: [
           ...state.post,
-          action.post,
+          {
+            ...action.post,
+            id: state.post[state.post.length - 1].id + 1,
+          }
         ],
       }
     }
@@ -36,6 +46,12 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         isButtonDisabled: action.isButtonDisabled,
+      }
+    }
+    case TOGGLE_POPUP_TYPE: {
+      return {
+        ...state,
+        isPopupActive: action.isPopupActive,
       }
     }
     default:

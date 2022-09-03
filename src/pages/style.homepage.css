@@ -19,11 +19,23 @@
     @apply flex flex-col;
   }
 
+  .homepage .popup {
+    @apply w-full h-screen bg-black/[.6] fixed flex justify-center items-center;
+  }
+
   .console {
     @apply mt-5 p-7 w-[35rem] 2xl:w-[50rem] border border-gray-400 flex flex-col;
   }
 
+  .console-edit {
+    @apply mt-5 p-7 w-[35rem] 2xl:w-[50rem] bg-white flex flex-col;
+  }
+
   .console h2 {
+    @apply text-xl font-bold;
+  }
+
+  .console-edit h2 {
     @apply text-xl font-bold;
   }
 
@@ -31,7 +43,15 @@
     @apply px-8 py-[0.40rem] bg-black text-white font-medium self-end;
   }
 
+  .console-edit button {
+    @apply px-8 py-[0.40rem] bg-black text-white font-medium self-end;
+  }
+
   .console button:disabled {
+    @apply bg-gray-400;
+  }
+
+  .console-edit button:disabled {
     @apply bg-gray-400;
   }
 
@@ -39,7 +59,15 @@
     @apply my-5 w-full flex flex-col;
   }
 
+  .console-edit .post-form {
+    @apply my-5 w-full flex flex-col;
+  }
+
   .console .post-form label {
+    @apply flex flex-col;
+  }
+
+  .console-edit .post-form label {
     @apply flex flex-col;
   }
 
@@ -47,11 +75,24 @@
     @apply mb-3;
   }
 
+  .console-edit .post-form label:first-of-type {
+    @apply mb-3;
+  }
+
   .console .post-form label span {
     @apply mb-1 font-semibold;
   }
 
+  .console-edit .post-form label span {
+    @apply mb-1 font-semibold;
+  }
+
   .console .post-form label input,
+  textarea {
+    @apply p-1 border border-gray-400 rounded-sm;
+  }
+
+  .console-edit .post-form label input,
   textarea {
     @apply p-1 border border-gray-400 rounded-sm;
   }

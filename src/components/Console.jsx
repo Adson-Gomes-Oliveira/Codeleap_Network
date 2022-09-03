@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import actions from '../actions/index';
 
-const Console = () => {
+const Console = ({editMode}) => {
   const dispatch = useDispatch();
   const stateHomepage = useSelector((state) => state.homepageReducer);
   const stateUser = useSelector((state) => state.signUpReducer);
@@ -47,8 +47,8 @@ const Console = () => {
   };
 
   return (
-    <section className="console">
-      <h2>What's on your mind?</h2>
+    <section className={editMode ? "console-edit" : "console"}>
+      <h2>{editMode ? "Edit Item" : "What's on your mind?"}</h2>
       <form className="post-form">
         <label htmlFor="title">
           <span>Title</span>
@@ -76,7 +76,7 @@ const Console = () => {
         disabled={stateHomepage.isButtonDisabled}
         onClick={handleClick}
       >
-        CREATE
+        {editMode ? "SAVE" : "CREATE"}
       </button>
     </section>
   )

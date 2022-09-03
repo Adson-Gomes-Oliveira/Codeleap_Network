@@ -10,6 +10,13 @@ const Homepage = () => {
 
   return (
     <section className="homepage">
+      {state.isPopupActive.switch && (
+        <div className="popup">
+          {state.isPopupActive.editMode && <Console editMode={true}/>}
+          {/* {state.isPopupActive.deleteMode && ()}
+          {state.isPopupActive.unvlidUserMode && ()} */}
+        </div>
+      )}
       <div className="homepage-body">
         <header><h1>CodeLeap Network</h1></header>
         <div className="homepage-elements">
