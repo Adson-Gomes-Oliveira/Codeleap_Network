@@ -1,16 +1,14 @@
+import { createUser, toggleButton } from './userAction';
+import { createPost, storePostInputs } from './postAction';
+
 export const CREATE_USER_TYPE = 'CREATE_USER';
 export const TOGGLE_BUTTON_TYPE = 'TOGGLE_BUTTON';
+export const STORE_POST_INPUTS = 'STORE_POST';
+export const CREATE_POST_TYPE = 'CREATE_POST';
 
-export const createUser = (user) => {
-  return {
-    type: CREATE_USER_TYPE,
-    user,
-  }
-};
+const actions = {
+  userAction: { createUser, toggleButton },
+  postAction: { createPost, storePostInputs },
+}
 
-export const toggleButton = (isDisabled) => {
-  return {
-    type: TOGGLE_BUTTON_TYPE,
-    isDisabled,
-  }
-};
+export default actions;

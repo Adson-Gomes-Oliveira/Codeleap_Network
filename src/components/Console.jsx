@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import actions from '../actions/index';
+
 const Console = () => {
-  // const dispatch = useDispatch();
-  const store = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.homepageReducer);
   // const navigate = useNavigate();
   
   // useEffect(() => {
@@ -16,10 +18,16 @@ const Console = () => {
   //   }
   // }, [isButtonDisabled, user, dispatch]);
 
-  // handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   dispatch(createPost());
-  // }
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    console.log(state);
+    const postInputState = {
+      ...state,
+      [id]: value,
+    }
+
+    dispatch(actions.postAction.storePostInputs(postInputState));
+  }
 
   const handleClick = () => {
 
@@ -29,30 +37,30 @@ const Console = () => {
     <section className="console">
       <h2>What's on your mind?</h2>
       <form className="post-form">
-        <label htmlFor="title-input">
+        <label htmlFor="title">
           <span>Title</span>
           <input
-            id="title-input"
+            id="title"
             type="text"
             placeholder="Hello world"
-            // onChange={handleChange}
-            // value={store}
+            onChange={handleChange}
+            value={state.title}
           />
         </label>
-        <label htmlFor="content-area">
+        <label htmlFor="content">
           <span>Content</span>
           <textarea
-            id="content-area"
+            id="content"
             placeholder="Hello world"
             rows="5"
-            // onChange={handleChange}
-            // value={store}
+            onChange={handleChange}
+            value={state.content}
           />
         </label>
       </form>
       <button
         type="button"
-        disabled={store}
+        disabled={state.isButtonDisabled}
         onClick={handleClick}
       >
         CREATE

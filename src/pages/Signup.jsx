@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { createUser, toggleButton } from '../actions/index';
+import actions from '../actions/index';
 import CodeLeapLogo from '../assets/codeleap-logo.png';
 import './style.signup.css';
 
@@ -15,10 +15,10 @@ const SignUp = () => {
 
   useEffect(() => {
     if (isButtonDisabled === true && user.length > 0) {
-      dispatch(toggleButton(false));
+      dispatch(actions.userAction.toggleButton(false));
     }
     if (isButtonDisabled === false && user.length < 1) {
-      dispatch(toggleButton(true));
+      dispatch(actions.userAction.toggleButton(true));
     }
   }, [isButtonDisabled, user, dispatch]);
 
@@ -26,7 +26,7 @@ const SignUp = () => {
 
   const handleInput = (event) => {
     const { value } = event.target;
-    dispatch(createUser(value));
+    dispatch(actions.userAction.createUser(value));
   };
 
   return (
