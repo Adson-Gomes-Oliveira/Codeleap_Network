@@ -16,7 +16,7 @@ const signUpReducer = (state = INITIAL_STATE, action) => {
     case TOGGLE_BUTTON_TYPE: {
       return {
         ...state,
-        isButtonDisabled: action.isDisabled,
+        isButtonDisabled: action.isButtonDisabled,
       }
     }
     default:

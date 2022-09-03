@@ -6,10 +6,3 @@ export const createUser = (user) => {
     user,
   }
 };
-
-export const toggleButton = (isDisabled) => {
-  return {
-    type: TOGGLE_BUTTON_TYPE,
-    isDisabled,
-  }
-};

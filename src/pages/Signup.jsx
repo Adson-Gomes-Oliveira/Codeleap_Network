@@ -15,10 +15,10 @@ const SignUp = () => {
 
   useEffect(() => {
     if (isButtonDisabled === true && user.length > 0) {
-      dispatch(actions.userAction.toggleButton(false));
+      dispatch(actions.toggleButton(false));
     }
     if (isButtonDisabled === false && user.length < 1) {
-      dispatch(actions.userAction.toggleButton(true));
+      dispatch(actions.toggleButton(true));
     }
   }, [isButtonDisabled, user, dispatch]);
 

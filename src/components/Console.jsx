@@ -8,6 +8,19 @@ const Console = () => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.homepageReducer);
   // const navigate = useNavigate();
+
+  const { title, content, isButtonDisabled } = state;
+
+  useEffect(() => {
+    if (isButtonDisabled === true
+      && (title.length > 0 && content.length > 0)) {
+        dispatch(actions.toggleButton(false));
+      }
+    if (isButtonDisabled === false
+      && (title.length < 1 || content.length < 1)) {
+        dispatch(actions.toggleButton(true));
+      }
+  });
   
   // useEffect(() => {
   //   if (isButtonDisabled === true && user.length > 0) {

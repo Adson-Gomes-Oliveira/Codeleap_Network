@@ -1,4 +1,4 @@
-import { CREATE_POST_TYPE, STORE_POST_INPUTS } from "../../actions";
+import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_BUTTON_TYPE } from "../../actions";
 
 const INITIAL_STATE = {
   title: '',
@@ -23,6 +23,12 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
           ...state.post,
           action.post,
         ],
+      }
+    }
+    case TOGGLE_BUTTON_TYPE: {
+      return {
+        ...state,
+        isButtonDisabled: action.isButtonDisabled,
       }
     }
     default:
