@@ -37,6 +37,7 @@ const SignUp = () => {
         <label className="sign-up-label" htmlFor="username-input">
           <span>Please enter your username</span>
           <input
+            id="username-input"
             type="text"
             placeholder="John Doe"
             onChange={handleInput}
