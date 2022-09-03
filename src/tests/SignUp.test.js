@@ -2,13 +2,16 @@ import React from 'react';
 import { render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event';
 
-import SignUp from '../components/SignUp';
+import SignUp from '../pages/SignUp';
 import renderWithRouter from '../helpers/renderWithRouter';
+
+// Tests does not working yet, I had a problem with react-redux context value.
+// I did not figure out yet how to render with Redux as well render with Router.
 
 describe('01) Testing SignUp page', () => {
   it('The welcome message exist', () => {
     render(<SignUp />);
-    const welcomeMsg = screen.getByText(/welcome to codeleap network!/i);
+    const welcomeMsg = screen.getByText(/welcome/i);
     expect(welcomeMsg).toBeDefined();
   });
   it('The input box exist', () => {
