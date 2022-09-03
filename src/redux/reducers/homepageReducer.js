@@ -3,7 +3,14 @@ import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_BUTTON_TYPE } from "../../a
 const INITIAL_STATE = {
   title: '',
   content: '',
-  post: [],
+  post: [{
+    title: 'Make your first post',
+    content: `Just tell us what is in your heart or mind,
+    on the console above you can create posts by choose a Title,
+    write some content and click on create.`,
+    datetime: null,
+    username: 'root',
+  }],
   isButtonDisabled: true,
 }
 

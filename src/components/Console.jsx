@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 import actions from '../actions/index';
 
 const Console = () => {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.homepageReducer);
-  // const navigate = useNavigate();
+  const stateHomepage = useSelector((state) => state.homepageReducer);
+  const stateUser = useSelector((state) => state.signUpReducer);
 
-  const { title, content, isButtonDisabled } = state;
+  const { title, content, isButtonDisabled } = stateHomepage;
+  const { user } = stateUser;
 
   useEffect(() => {
     if (isButtonDisabled === true
@@ -20,30 +20,30 @@ const Console = () => {
       && (title.length < 1 || content.length < 1)) {
         dispatch(actions.toggleButton(true));
       }
-  });
-  
-  // useEffect(() => {
-  //   if (isButtonDisabled === true && user.length > 0) {
-  //     dispatch(toggleButton(false));
-  //   }
-  //   if (isButtonDisabled === false && user.length < 1) {
-  //     dispatch(toggleButton(true));
-  //   }
-  // }, [isButtonDisabled, user, dispatch]);
+  }, [title, content, dispatch, isButtonDisabled]);
 
   const handleChange = (event) => {
     const { id, value } = event.target;
-    console.log(state);
     const postInputState = {
-      ...state,
+      ...stateHomepage,
       [id]: value,
     }
 
     dispatch(actions.postAction.storePostInputs(postInputState));
   }
-
   const handleClick = () => {
+    const now = new Date();
 
+    const postInfos = {
+      postData: {
+        title,
+        content,
+      },
+      datetime: now,
+      username: user,
+    };
+
+    dispatch(actions.postAction.createPost(postInfos));
   };
 
   return (
@@ -57,7 +57,7 @@ const Console = () => {
             type="text"
             placeholder="Hello world"
             onChange={handleChange}
-            value={state.title}
+            value={stateHomepage.title}
           />
         </label>
         <label htmlFor="content">
@@ -67,13 +67,13 @@ const Console = () => {
             placeholder="Hello world"
             rows="5"
             onChange={handleChange}
-            value={state.content}
+            value={stateHomepage.content}
           />
         </label>
       </form>
       <button
         type="button"
-        disabled={state.isButtonDisabled}
+        disabled={stateHomepage.isButtonDisabled}
         onClick={handleClick}
       >
         CREATE
