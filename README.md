@@ -1,7 +1,8 @@
 <center><h2> CodeLeap Network </h2></center>
 
-### Sobre o Projeto
+### About the project
 <center>Be very welcome to CodeLeap Network Respository</center>
+<br/>
 <br/>
 Here you will find my code of CodeLeap Network project, a front end project that
 have a CRUD functionality, to create, read, update and delete posts.
@@ -20,36 +21,20 @@ GitHub, you will find others front-end and back-end projects.<br/><br/>
 
 ---
 
-### Instruções
+### Instructions
 <details>
-<summary> Como rodar o projeto utilizando a maquina local </summary>
+<summary> How to run the project on your local machine </summary>
 <br/>
 
->Primeiro faça o clone deste repositório em sua maquina.
+>First clone this repo in your machine.
 ```
-git clone ggit@github.com:Adson-Gomes-Oliveira/Maratonei.git
+git clone git@github.com:Adson-Gomes-Oliveira/codeleap_network.git
 ```
->Após o clone ser concluído com sucesso, entre no diretório e utilize o comando `npm install`.
+>After successfully clone, enter in directory and use `npm install`.
 
->A API consumida é desenvolvida pelo TMDB https://developers.themoviedb.org/3
-
->Para rodar este projeto em sua maquina será necessário que obtenha um token de autenticação.  
-Este token pode ser obtido através do cadastro no TMDB.
-
->O projeto acompanha um arquivo .env-default.txt, troque o nome para .env (Após ter realizado o `npm install`)  
-e no campo TMDB_API_TOKEN defina como valor o seu token do TMDB, assim a aplicação vai funcionar normalmente.
-
->Utilize `npm start` para iniciar a aplicação.
+>Use `npm start` to start a server of that appication.
 
 </details>
-<details>
-<summary> Como rodar o projeto utilizando o docker </summary>
-</details>
-
----
-
-### Informações adicionais
-Projeto para Desktop completo, versão mobile em desenvolvimento.
 
 ---
 
