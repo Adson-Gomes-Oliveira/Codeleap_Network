@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { createUser, toggleButton } from '../actions/index';
+import actions from '../actions/index';
 import CodeLeapLogo from '../assets/codeleap-logo.png';
 import './style.signup.css';
 
@@ -13,20 +13,20 @@ const SignUp = () => {
 
   const { user, isButtonDisabled } = state;
 
-  useEffect(() => {
+  useEffect(() => { // Activate or deactivate button
     if (isButtonDisabled === true && user.length > 0) {
-      dispatch(toggleButton(false));
+      dispatch(actions.toggleButton(false));
     }
     if (isButtonDisabled === false && user.length < 1) {
-      dispatch(toggleButton(true));
+      dispatch(actions.toggleButton(true));
     }
   }, [isButtonDisabled, user, dispatch]);
 
-  const handleClick = () => navigate('/home');
+  const handleNavigate = () => navigate('/home');
 
-  const handleInput = (event) => {
+  const handleChange = (event) => {
     const { value } = event.target;
-    dispatch(createUser(value));
+    dispatch(actions.userAction.createUser(value));
   };
 
   return (
@@ -37,15 +37,16 @@ const SignUp = () => {
         <label className="sign-up-label" htmlFor="username-input">
           <span>Please enter your username</span>
           <input
+            id="username-input"
             type="text"
             placeholder="John Doe"
-            onChange={handleInput}
+            onChange={handleChange}
             value={user}
           />
         </label>
         <button
           type="button"
-          onClick={handleClick}
+          onClick={handleNavigate}
           disabled={isButtonDisabled}
         >
           ENTER
