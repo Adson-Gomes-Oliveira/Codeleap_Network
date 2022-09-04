@@ -17,7 +17,7 @@ const INITIAL_STATE = {
     switch: false,
     editMode: false,
     deleteMode: false,
-    unvalidUserMode: false,
+    unvalidUserMode: true,
   },
   postEdit: 0,
 }
