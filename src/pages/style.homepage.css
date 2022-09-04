@@ -156,4 +156,24 @@
   .unvalid-user-alert button {
     @apply px-8 py-[0.40rem] bg-black text-white font-medium;
   }
+
+  .delete-post-alert {
+    @apply w-[35rem] h-44 bg-white flex flex-col items-center justify-evenly;
+  }
+
+  .delete-post-alert span:first-of-type {
+    @apply font-bold text-lg;
+  }
+
+  .delete-post-alert span:nth-child(2) {
+    @apply font-semibold;
+  }
+
+  .delete-post-alert button {
+    @apply px-8 mx-3 py-[0.40rem] bg-black text-white font-medium;
+  }
+
+  .delete-post-alert button:first-of-type {
+    @apply bg-red-600;
+  }
 }

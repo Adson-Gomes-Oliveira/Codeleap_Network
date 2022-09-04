@@ -12,7 +12,7 @@ const UnvalidPopup = () => {
 
   return(
     <div class="unvalid-user-alert">
-      <span>Invalid Edit</span>
+      <span>INVALID EDIT</span>
       <span>You can only edit your own posts</span>
       <button type="button" onClick={handleClose}>CLOSE</button>
     </div>

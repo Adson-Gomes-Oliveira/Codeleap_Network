@@ -1,4 +1,4 @@
-import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_POPUP_TYPE, EDIT_POST_TYPE } from ".";
+import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_POPUP_TYPE, EDIT_POST_TYPE, DELETE_POST_TYPE } from ".";
 
 export const storePostInputs = (input) => {
   console.log(input);
@@ -30,6 +30,13 @@ export const editPost = (postInfos) => {
       datetime,
       username,
     },
+  }
+}
+
+export const deletePost = (postDelete) => {
+  return {
+    type: DELETE_POST_TYPE,
+    postDelete,
   }
 }
 

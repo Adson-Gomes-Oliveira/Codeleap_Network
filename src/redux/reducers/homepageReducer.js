@@ -1,4 +1,12 @@
-import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_BUTTON_TYPE, TOGGLE_POPUP_TYPE, EDIT_POST_TYPE } from "../../actions";
+import { 
+  CREATE_POST_TYPE,
+  STORE_POST_INPUTS,
+  TOGGLE_BUTTON_TYPE,
+  TOGGLE_POPUP_TYPE,
+  EDIT_POST_TYPE,
+  DELETE_POST_TYPE,
+  CLEAR_TEMP_TYPE
+} from "../../actions";
 
 const INITIAL_STATE = {
   title: '',
@@ -20,6 +28,7 @@ const INITIAL_STATE = {
     unvalidUserMode: true,
   },
   postEdit: 0,
+  postDelete: 0,
 }
 
 const homepageReducer = (state = INITIAL_STATE, action) => {
@@ -57,6 +66,20 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         }
       }
     }
+    case DELETE_POST_TYPE: {
+      const postTarget = state.post.findIndex((post) => post.id === action.postDelete);
+
+      return {
+        ...state,
+        post: [...state.post.slice(0, postTarget)],
+        postDelete: 0,
+        isPopupActive: {
+          ...state.isPopupActive,
+          switch: false,
+          deleteMode: false,
+        }
+      }
+    }
     case TOGGLE_BUTTON_TYPE: {
       return {
         ...state,
@@ -68,6 +91,14 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         ...state,
         isPopupActive: { ...action.isPopupActive },
         postEdit: action.idEdit,
+        postDelete: action.idEdit,
+      }
+    }
+    case CLEAR_TEMP_TYPE: {
+      return {
+        ...state,
+        title: '',
+        content: '',
       }
     }
     default:

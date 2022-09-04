@@ -48,6 +48,19 @@ const Posts = ({data}) => {
     }
   };
 
+  const handleDelete = (id) => {
+    const postUser = data.find((post) => post.id === id).username;
+    const activeUser = user;
+
+    if (postUser === activeUser) {
+      dispatch(actions.postAction.togglePopup('deleteMode', true, id));
+    }
+
+    if (postUser !== activeUser) {
+      dispatch(actions.postAction.togglePopup('unvalidUserMode', true));
+    }
+  }
+
   return(
     <section className="post-section">
       {data.map((post) => {
@@ -58,7 +71,7 @@ const Posts = ({data}) => {
             <div className="post-header">
               <h2>{title}</h2>
               <div className="header-icons">
-                <button type="button">
+                <button type="button" onClick={() => handleDelete(id)}>
                   <span className="material-icons-outlined delete-icon">
                     delete_forever
                   </span>

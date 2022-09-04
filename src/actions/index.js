@@ -1,5 +1,5 @@
 import { createUser } from './userAction';
-import { createPost, storePostInputs, togglePopup, editPost } from './postAction';
+import { createPost, storePostInputs, togglePopup, editPost, deletePost } from './postAction';
 
 export const CREATE_USER_TYPE = 'CREATE_USER';
 export const TOGGLE_BUTTON_TYPE = 'TOGGLE_BUTTON';
@@ -7,6 +7,8 @@ export const TOGGLE_POPUP_TYPE = 'TOGGLE_POPUP';
 export const STORE_POST_INPUTS = 'STORE_POST';
 export const CREATE_POST_TYPE = 'CREATE_POST';
 export const EDIT_POST_TYPE = 'EDIT_POST';
+export const DELETE_POST_TYPE = 'DELETE_POST';
+export const CLEAR_TEMP_TYPE = 'CLEAR_TEMP';
 
 const toggleButton = (isButtonDisabled) => {
   return {
@@ -15,10 +17,17 @@ const toggleButton = (isButtonDisabled) => {
   }
 };
 
+const clearTempPost = () => {
+  return {
+    type: CLEAR_TEMP_TYPE,
+  }
+}
+
 const actions = {
   toggleButton,
+  clearTempPost,
   userAction: { createUser },
-  postAction: { createPost, storePostInputs, togglePopup, editPost },
+  postAction: { createPost, storePostInputs, togglePopup, editPost, deletePost },
 }
 
 export default actions;
