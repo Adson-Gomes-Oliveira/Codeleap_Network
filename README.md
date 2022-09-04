@@ -14,8 +14,6 @@ This code was developed by me, Adson Gomes Oliveira, for the code test of CodeLe
 <br/>
 Feel free to navigate on other projects of my GitHub, you will find others front-end and back-end projects.<br/><br/>
 
-*Obs: Mobile version was not developed yet, but works fine on mobile devices such as large devices higher than w: 1366px*
-
 ---
 
 ### Technologies used on Development
