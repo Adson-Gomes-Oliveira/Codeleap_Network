@@ -8,7 +8,7 @@ const UnvalidPopup = () => {
   const dispatch = useDispatch();
 
   const handleClose = () => {
-    dispatch(actions.postAction.togglePopup(null, false, 0));
+    dispatch(actions.togglePopup(null, false, 0));
   }
 
   return(

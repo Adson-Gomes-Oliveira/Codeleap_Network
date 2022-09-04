@@ -12,7 +12,7 @@ const Console = ({editMode}) => {
   const { title, content, isButtonDisabled, postEdit } = stateHomepage;
   const { user } = stateUser;
 
-  useEffect(() => {
+  useEffect(() => { // Activate or deactivate button
     if (isButtonDisabled === true
       && (title.length > 0 && content.length > 0)) {
         dispatch(actions.toggleButton(false));
@@ -65,7 +65,7 @@ const Console = ({editMode}) => {
   };
 
   const handleClose = () => {
-    dispatch(actions.postAction.togglePopup(null, false, 0));
+    dispatch(actions.togglePopup(null, false, 0));
   };
 
   return (

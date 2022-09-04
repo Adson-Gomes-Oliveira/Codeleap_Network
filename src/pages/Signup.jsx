@@ -13,7 +13,7 @@ const SignUp = () => {
 
   const { user, isButtonDisabled } = state;
 
-  useEffect(() => {
+  useEffect(() => { // Activate or deactivate button
     if (isButtonDisabled === true && user.length > 0) {
       dispatch(actions.toggleButton(false));
     }

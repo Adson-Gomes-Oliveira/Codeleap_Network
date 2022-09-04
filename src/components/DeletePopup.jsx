@@ -11,12 +11,12 @@ const DeletePopup = () => {
   const { postDelete } = state;
 
   const handleClose = () => {
-    dispatch(actions.postAction.togglePopup(null, false, 0));
+    dispatch(actions.togglePopup(null, false, 0));
   }
 
   const handleDelete = () => {
-    dispatch(actions.postAction.deletePost(postDelete));
-    dispatch(actions.postAction.togglePopup(null, false, 0));
+    dispatch(actions.deletePost(postDelete));
+    dispatch(actions.togglePopup(null, false, 0));
   }
 
   return(

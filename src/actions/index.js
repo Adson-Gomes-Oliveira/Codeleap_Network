@@ -1,5 +1,5 @@
 import { createUser } from './userAction';
-import { createPost, storePostInputs, togglePopup, editPost, deletePost } from './postAction';
+import { createPost, storePostInputs, editPost, deletePost } from './postAction';
 
 export const CREATE_USER_TYPE = 'CREATE_USER';
 export const TOGGLE_BUTTON_TYPE = 'TOGGLE_BUTTON';
@@ -17,10 +17,31 @@ const toggleButton = (isButtonDisabled) => {
   }
 };
 
+export const togglePopup = (popupMode, toggle, idEdit) => {
+  const mode = {
+    switch: false,
+    editMode: false,
+    deleteMode: false,
+    unvalidUserMode: false,
+  }
+
+  mode[popupMode] = true;
+
+  if (toggle) mode.switch = true;
+  if (!toggle) mode.switch = false;
+
+  return {
+    type: TOGGLE_POPUP_TYPE,
+    isPopupActive: mode,
+    idEdit,
+  }
+}
+
 const actions = {
+  togglePopup,
   toggleButton,
   userAction: { createUser },
-  postAction: { createPost, storePostInputs, togglePopup, editPost, deletePost },
+  postAction: { createPost, storePostInputs, editPost, deletePost },
 }
 
 export default actions;

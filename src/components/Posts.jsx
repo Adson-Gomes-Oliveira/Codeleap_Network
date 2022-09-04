@@ -41,11 +41,11 @@ const Posts = ({data}) => {
     const activeUser = user;
 
     if (postUser === activeUser) {
-      dispatch(actions.postAction.togglePopup('editMode', true, id));
+      dispatch(actions.togglePopup('editMode', true, id));
     }
 
     if (postUser !== activeUser) {
-      dispatch(actions.postAction.togglePopup('unvalidUserMode', true));
+      dispatch(actions.togglePopup('unvalidUserMode', true));
     }
   };
 
@@ -54,11 +54,11 @@ const Posts = ({data}) => {
     const activeUser = user;
 
     if (postUser === activeUser) {
-      dispatch(actions.postAction.togglePopup('deleteMode', true, id));
+      dispatch(actions.togglePopup('deleteMode', true, id));
     }
 
     if (postUser !== activeUser) {
-      dispatch(actions.postAction.togglePopup('unvalidUserMode', true));
+      dispatch(actions.togglePopup('unvalidUserMode', true));
     }
   }
 
