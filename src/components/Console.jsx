@@ -85,6 +85,7 @@ const Console = ({editMode}) => {
           <span>Title</span>
           <input
             id="title"
+            data-testid="title-box"
             type="text"
             placeholder="Hello world"
             onChange={handleChange}
@@ -95,6 +96,7 @@ const Console = ({editMode}) => {
           <span>Content</span>
           <textarea
             id="content"
+            data-testid="content-box"
             placeholder="Hello world"
             rows="5"
             onChange={handleChange}

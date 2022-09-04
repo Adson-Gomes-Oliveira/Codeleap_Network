@@ -57,7 +57,11 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         ...state,
         title: '',
         content: '',
-        post: [...state.post.slice(0, postTarget), action.post, ...state.post.slice(postTarget + 1)],
+        post: [
+          ...state.post.slice(0, postTarget),
+          action.post,
+          ...state.post.slice(postTarget + 1)
+        ],
         postEdit: 0,
         isPopupActive: {
           ...state.isPopupActive,
