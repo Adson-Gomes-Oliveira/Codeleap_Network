@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+<center><h2> CodeLeap Network </h2></center>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Sobre o Projeto
+<center>Be very welcome to CodeLeap Network Respository</center>
+<br/>
+Here you will find my code of CodeLeap Network project, a front end project that
+have a CRUD functionality, to create, read, update and delete posts.
+<br/>
+<br/>
+This code was developed by me, Adson Gomes Oliveira, for the code test of CodeLeap.
+Showing my front-end hard skills, feel free to navigate on other projects of my
+GitHub, you will find others front-end and back-end projects.<br/><br/>
 
-## Available Scripts
+*Obs: Mobile version was not developed yet, but works fine on mobile devices such as large devices higher than w: 1366px*
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### Tecnologias Utilizadas no Desenvolvimento
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![React-Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white) ![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white) ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Instruções
+<details>
+<summary> Como rodar o projeto utilizando a maquina local </summary>
+<br/>
 
-### `npm test`
+>Primeiro faça o clone deste repositório em sua maquina.
+```
+git clone ggit@github.com:Adson-Gomes-Oliveira/Maratonei.git
+```
+>Após o clone ser concluído com sucesso, entre no diretório e utilize o comando `npm install`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+>A API consumida é desenvolvida pelo TMDB https://developers.themoviedb.org/3
 
-### `npm run build`
+>Para rodar este projeto em sua maquina será necessário que obtenha um token de autenticação.  
+Este token pode ser obtido através do cadastro no TMDB.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+>O projeto acompanha um arquivo .env-default.txt, troque o nome para .env (Após ter realizado o `npm install`)  
+e no campo TMDB_API_TOKEN defina como valor o seu token do TMDB, assim a aplicação vai funcionar normalmente.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+>Utilize `npm start` para iniciar a aplicação.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+</details>
+<details>
+<summary> Como rodar o projeto utilizando o docker </summary>
+</details>
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Informações adicionais
+Projeto para Desktop completo, versão mobile em desenvolvimento.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Template desenvolvido com carinho por [AG-Dev](https://www.linkedin.com/in/adson-gomes-oliveira/)
