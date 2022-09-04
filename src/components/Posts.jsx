@@ -15,7 +15,7 @@ const Posts = ({data}) => {
 
   const { user } = state;
 
-  const postTime = (datetime) => {
+  const postTime = (datetime) => { // Function for calculate time on posts
     const now = moment(timeNow);
     const past = moment(datetime);
     const duration = moment.duration(now.diff(past));
@@ -26,7 +26,7 @@ const Posts = ({data}) => {
     return duration.asMinutes();
   }
 
-  useEffect(() => {
+  useEffect(() => { // useEffect for update time on posts
     const interval = setInterval(() => {
       setTimeNow(new Date());
     }, INTERVAL_TO_UPDATE);
@@ -89,7 +89,9 @@ const Posts = ({data}) => {
             <div className="post-content">
               <div className="content-header">
                 <span className="header-username">{`@${username}`}</span>
-                <span className="header-datetime">{`${Math.round(postTime(datetime))} minutes ago`}</span>
+                {datetime !== 0 && (
+                  <span className="header-datetime">{`${Math.round(postTime(datetime))} minutes ago`}</span>
+                )}
               </div>
 
               <div className="content-text">

@@ -22,9 +22,9 @@ const SignUp = () => {
     }
   }, [isButtonDisabled, user, dispatch]);
 
-  const handleClick = () => navigate('/home');
+  const handleNavigate = () => navigate('/home');
 
-  const handleInput = (event) => {
+  const handleChange = (event) => {
     const { value } = event.target;
     dispatch(actions.userAction.createUser(value));
   };
@@ -40,13 +40,13 @@ const SignUp = () => {
             id="username-input"
             type="text"
             placeholder="John Doe"
-            onChange={handleInput}
+            onChange={handleChange}
             value={user}
           />
         </label>
         <button
           type="button"
-          onClick={handleClick}
+          onClick={handleNavigate}
           disabled={isButtonDisabled}
         >
           ENTER

@@ -1,5 +1,5 @@
 .unvalid-user-alert {
-  @apply w-[35rem] h-44 bg-white flex flex-col items-center justify-evenly;
+  @apply w-[50%] h-[30%] bg-white flex flex-col items-center justify-evenly;
 }
 
 .unvalid-user-alert span:first-of-type {
@@ -15,7 +15,7 @@
 }
 
 .delete-post-alert {
-  @apply w-[35rem] h-44 bg-white flex flex-col items-center justify-evenly;
+  @apply  w-[50%] h-[30%] bg-white flex flex-col items-center justify-evenly;
 }
 
 .delete-post-alert span:first-of-type {

@@ -31,9 +31,9 @@ const Console = ({editMode}) => {
     }
 
     dispatch(actions.postAction.storePostInputs(postInputState));
-  }
+  };
 
-  const handleClick = () => {
+  const handleCreate = () => {
     const now = new Date();
 
     const postInfos = {
@@ -66,7 +66,7 @@ const Console = ({editMode}) => {
 
   const handleClose = () => {
     dispatch(actions.postAction.togglePopup(null, false, 0));
-  }
+  };
 
   return (
     <section className={editMode ? "console-edit" : "console"}>
@@ -105,7 +105,7 @@ const Console = ({editMode}) => {
       <button
         type="button"
         disabled={stateHomepage.isButtonDisabled}
-        onClick={editMode ? handleEdit : handleClick}
+        onClick={editMode ? handleEdit : handleCreate}
       >
         {editMode ? "SAVE" : "CREATE"}
       </button>

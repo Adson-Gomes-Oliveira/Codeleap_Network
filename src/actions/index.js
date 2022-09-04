@@ -17,15 +17,8 @@ const toggleButton = (isButtonDisabled) => {
   }
 };
 
-const clearTempPost = () => {
-  return {
-    type: CLEAR_TEMP_TYPE,
-  }
-}
-
 const actions = {
   toggleButton,
-  clearTempPost,
   userAction: { createUser },
   postAction: { createPost, storePostInputs, togglePopup, editPost, deletePost },
 }

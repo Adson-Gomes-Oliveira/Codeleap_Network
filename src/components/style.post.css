@@ -4,7 +4,7 @@
 
 @layer base {
   .post-section {
-    @apply w-[90%] flex flex-col;
+    @apply w-[95%] flex flex-col;
   }
 
   .post-section .post {

@@ -5,7 +5,6 @@ import {
   TOGGLE_POPUP_TYPE,
   EDIT_POST_TYPE,
   DELETE_POST_TYPE,
-  CLEAR_TEMP_TYPE
 } from "../../actions";
 
 const INITIAL_STATE = {
@@ -13,7 +12,7 @@ const INITIAL_STATE = {
   content: '',
   post: [{
     id: 1,
-    title: 'Make your first post',
+    title: 'Welcome to CodeLeap Network',
     content: `Just tell us what is in your heart or mind,
     on the console above you can create posts by choose a Title,
     write some content and click on create.`,
@@ -43,6 +42,8 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
     case CREATE_POST_TYPE: {
       return {
         ...state,
+        title: '',
+        content: '',
         post: [
           ...state.post,
           {
@@ -57,6 +58,8 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
 
       return {
         ...state,
+        title: '',
+        content: '',
         post: [...state.post.slice(0, postTarget), action.post, ...state.post.slice(postTarget + 1)],
         postEdit: 0,
         isPopupActive: {
@@ -71,6 +74,8 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
 
       return {
         ...state,
+        title: '',
+        content: '',
         post: [...state.post.slice(0, postTarget)],
         postDelete: 0,
         isPopupActive: {
@@ -92,13 +97,6 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         isPopupActive: { ...action.isPopupActive },
         postEdit: action.idEdit,
         postDelete: action.idEdit,
-      }
-    }
-    case CLEAR_TEMP_TYPE: {
-      return {
-        ...state,
-        title: '',
-        content: '',
       }
     }
     default:

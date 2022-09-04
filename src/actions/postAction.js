@@ -1,7 +1,6 @@
 import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_POPUP_TYPE, EDIT_POST_TYPE, DELETE_POST_TYPE } from ".";
 
 export const storePostInputs = (input) => {
-  console.log(input);
   return {
     type: STORE_POST_INPUTS,
     title: input.title,
