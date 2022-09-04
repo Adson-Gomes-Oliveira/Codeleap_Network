@@ -32,7 +32,7 @@ git clone git@github.com:Adson-Gomes-Oliveira/codeleap_network.git
 ```
 >After successfully clone, enter in directory and use `npm install`.
 
->Use `npm start` to start a server of that appication.
+>Use `npm start` to start a server of that application.
 
 </details>
 
