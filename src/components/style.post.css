@@ -4,7 +4,7 @@
 
 @layer base {
   .post-section {
-    @apply w-[95%] flex flex-col;
+    @apply w-[36rem] flex flex-col;
   }
 
   .post-section .post {
@@ -12,7 +12,7 @@
   }
 
   .post-section .post:first-of-type {
-    @apply my-8;
+    @apply mb-8;
   }
 
   .post-section .post .post-header {

@@ -10,15 +10,7 @@ import {
 const INITIAL_STATE = {
   title: '',
   content: '',
-  post: [{
-    id: 1,
-    title: 'Welcome to CodeLeap Network',
-    content: `Just tell us what is in your heart or mind,
-    on the console above you can create posts by choose a Title,
-    write some content and click on create.`,
-    datetime: 0,
-    username: 'root',
-  }],
+  post: [],
   isButtonDisabled: true,
   isPopupActive: {
     switch: false,
@@ -40,6 +32,11 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
       }
     }
     case CREATE_POST_TYPE: {
+      let idPost = 1;
+      if (state.post[0]) {
+        idPost = state.post[0].id + 1
+      }
+
       return {
         ...state,
         title: '',
@@ -48,7 +45,7 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
           ...state.post,
           {
             ...action.post,
-            id: state.post[state.post.length - 1].id + 1,
+            id: idPost,
           }
         ],
       }
@@ -70,13 +67,13 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
       }
     }
     case DELETE_POST_TYPE: {
-      const postTarget = state.post.findIndex((post) => post.id === action.postDelete);
+      const postArr = state.post.filter((post) => post.id !== action.postDelete);
 
       return {
         ...state,
         title: '',
         content: '',
-        post: [...state.post.slice(0, postTarget)],
+        post: [...postArr],
         postDelete: 0,
         isPopupActive: {
           ...state.isPopupActive,

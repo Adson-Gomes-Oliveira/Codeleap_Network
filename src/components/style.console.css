@@ -4,7 +4,7 @@
 
 @layer base {
   .console {
-    @apply mt-5 p-7 w-[95%] border border-gray-400 flex flex-col;
+    @apply my-5 p-7 w-[36rem] border border-gray-400 flex flex-col;
   }
   
   .console-edit {

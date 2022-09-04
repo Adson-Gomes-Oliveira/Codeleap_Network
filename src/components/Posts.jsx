@@ -14,6 +14,7 @@ const Posts = ({data}) => {
   const state = useSelector((state) => state.signUpReducer);
 
   const { user } = state;
+  data.sort((a, b) => b.datetime - a.datetime);
 
   const postTime = (datetime) => { // Function for calculate time on posts
     const now = moment(timeNow);
