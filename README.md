@@ -1,7 +1,9 @@
 <center><h2> CodeLeap Network </h2></center>
 
 ### About the project
-<center>Be very welcome to CodeLeap Network Respository. https://codeleap-network-project.vercel.app</center>
+<center>Be very welcome to CodeLeap Network Respository.</center>
+<br/>
+https://codeleap-network-project.vercel.app
 <br/>
 <br/>
 Here you will find my code for CodeLeap Network project, a front end project that
