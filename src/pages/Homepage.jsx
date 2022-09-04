@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import Console from '../components/Console';
 import DeletePopup from '../components/DeletePopup';
@@ -9,6 +10,13 @@ import './style.homepage.css';
 
 const Homepage = () => {
   const state = useSelector((state) => state.homepageReducer);
+  const stateUser = useSelector((state) => state.signUpReducer);
+  const navigate = useNavigate();
+
+  const { user } = stateUser;
+
+  const verifyUser = useCallback(() => user.length < 1 && navigate('/'), [user.length, navigate]);
+  useEffect(() => { verifyUser() }, [verifyUser]);
 
   return (
     <section className="homepage">
