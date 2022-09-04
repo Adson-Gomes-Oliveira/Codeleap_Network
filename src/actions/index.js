@@ -1,4 +1,4 @@
-import { createUser } from './userAction';
+import { storeUserInput } from './userAction';
 import { createPost, storePostInputs, editPost, deletePost } from './postAction';
 
 export const CREATE_USER_TYPE = 'CREATE_USER';
@@ -41,7 +41,7 @@ export const togglePopup = (popupMode, toggle, idEdit) => {
 const actions = {
   togglePopup,
   toggleButton,
-  userAction: { createUser },
+  userAction: { storeUserInput },
   postAction: { createPost, storePostInputs, editPost, deletePost },
 }
 

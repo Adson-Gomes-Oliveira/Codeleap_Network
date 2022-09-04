@@ -26,7 +26,7 @@ const SignUp = () => {
 
   const handleChange = (event) => {
     const { value } = event.target;
-    dispatch(actions.userAction.createUser(value));
+    dispatch(actions.userAction.storeUserInput(value));
   };
 
   return (
