@@ -1,4 +1,4 @@
-import { CREATE_USER_TYPE, TOGGLE_BUTTON_TYPE } from '../../actions/index';
+import { STORE_USER_INPUTS, TOGGLE_BUTTON_TYPE } from '../../actions/index';
 
 const INITIAL_STATE = {
   user: '',
@@ -7,7 +7,7 @@ const INITIAL_STATE = {
 
 const signUpReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CREATE_USER_TYPE: {
+    case STORE_USER_INPUTS: {
       return {
         ...state,
         user: action.user,

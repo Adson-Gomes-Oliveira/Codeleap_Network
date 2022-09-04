@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import Console from '../components/Console';
 import DeletePopup from '../components/DeletePopup';
 import Posts from '../components/Posts';
-import UnvalidPopup from '../components/UnvalidPopup';
 import './style.homepage.css';
 
 const Homepage = () => {
@@ -24,7 +23,6 @@ const Homepage = () => {
         <div className="popup">
           {state.isPopupActive.editMode && <Console editMode={true}/>}
           {state.isPopupActive.deleteMode && <DeletePopup />}
-          {state.isPopupActive.unvalidUserMode && <UnvalidPopup />}
         </div>
       )}
       <div className="homepage-body">

@@ -71,7 +71,8 @@ const Posts = ({data}) => {
           <div key={uuidv4()} className="post">
             <div className="post-header">
               <h2>{title}</h2>
-              <div className="header-icons">
+              { username === user && (
+                <div className="header-icons">
                 <button type="button" onClick={() => handleDelete(id)}>
                   <span className="material-icons-outlined delete-icon">
                     delete_forever
@@ -84,6 +85,7 @@ const Posts = ({data}) => {
                   </span>
                 </button>
               </div>
+              )}
             </div>
 
             <div className="post-content">

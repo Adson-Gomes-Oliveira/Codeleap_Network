@@ -1,8 +1,8 @@
-import { CREATE_USER_TYPE, TOGGLE_BUTTON_TYPE } from ".";
+import { STORE_USER_INPUTS } from ".";
 
-export const createUser = (user) => {
+export const storeUserInput = (user) => {
   return {
-    type: CREATE_USER_TYPE,
+    type: STORE_USER_INPUTS,
     user,
   }
 };
