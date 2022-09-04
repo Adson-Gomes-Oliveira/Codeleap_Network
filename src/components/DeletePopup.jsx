@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import actions from '../actions';
+import './style.popup.css';
 
 const DeletePopup = () => {
   const dispatch = useDispatch();

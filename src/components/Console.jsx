@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import actions from '../actions/index';
+import './style.console.css';
 
 const Console = ({editMode}) => {
   const dispatch = useDispatch();

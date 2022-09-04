@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import actions from '../actions';
+import './style.popup.css';
 
 const UnvalidPopup = () => {
   const dispatch = useDispatch();

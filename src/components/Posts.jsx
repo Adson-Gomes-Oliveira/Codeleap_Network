@@ -4,6 +4,7 @@ import {v4 as uuidv4} from 'uuid';
 import moment from 'moment';
 
 import actions from '../actions';
+import './style.post.css';
 
 const INTERVAL_TO_UPDATE = 1000 * 60 * 1;
 
