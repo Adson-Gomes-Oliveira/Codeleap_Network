@@ -31,6 +31,18 @@
     @apply mt-5 p-7 w-[35rem] 2xl:w-[50rem] bg-white flex flex-col;
   }
 
+  .console-edit .console-header {
+    @apply flex justify-between items-center;
+  }
+
+  .console-edit .console-header button {
+    @apply p-0 bg-transparent;
+  }
+
+  .console-edit .console-header button span {
+    @apply text-black text-2xl font-bold;
+  }
+
   .console h2 {
     @apply text-xl font-bold;
   }

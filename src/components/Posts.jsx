@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {v4 as uuidv4} from 'uuid';
 import moment from 'moment';
+
+import actions from '../actions';
 
 const INTERVAL_TO_UPDATE = 1000 * 60 * 1;
 
 const Posts = ({data}) => {
   const [ timeNow, setTimeNow ] = useState(new Date());
+  const dispatch = useDispatch();
   const state = useSelector((state) => state.signUpReducer);
 
   const { user } = state;
@@ -33,10 +36,16 @@ const Posts = ({data}) => {
   }, [])
 
   const handleEdit = (id) => {
-    const postUser = data[id - 1].username;
+    const postUser = data.find((post) => post.id === id).username;
     const activeUser = user;
 
-    if (postUser === activeUser) {}
+    if (postUser === activeUser) {
+      dispatch(actions.postAction.togglePopup('editMode', true, id));
+    }
+
+    if (postUser !== activeUser) {
+      dispatch(actions.postAction.togglePopup('unvalidUserMode', true));
+    }
   };
 
   return(
@@ -49,13 +58,13 @@ const Posts = ({data}) => {
             <div className="post-header">
               <h2>{title}</h2>
               <div className="header-icons">
-                <button type="button" onClick={handleEdit(id)}>
+                <button type="button">
                   <span className="material-icons-outlined delete-icon">
                     delete_forever
                   </span>
                 </button>
   
-                <button type="button">
+                <button type="button" onClick={() => handleEdit(id)}>
                   <span className="material-icons-outlined edit-icon">
                     edit
                   </span>

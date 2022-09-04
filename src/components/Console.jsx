@@ -8,7 +8,7 @@ const Console = ({editMode}) => {
   const stateHomepage = useSelector((state) => state.homepageReducer);
   const stateUser = useSelector((state) => state.signUpReducer);
 
-  const { title, content, isButtonDisabled } = stateHomepage;
+  const { title, content, isButtonDisabled, postEdit } = stateHomepage;
   const { user } = stateUser;
 
   useEffect(() => {
@@ -31,6 +31,7 @@ const Console = ({editMode}) => {
 
     dispatch(actions.postAction.storePostInputs(postInputState));
   }
+
   const handleClick = () => {
     const now = new Date();
 
@@ -46,9 +47,38 @@ const Console = ({editMode}) => {
     dispatch(actions.postAction.createPost(postInfos));
   };
 
+  const handleEdit = () => {
+    const now = new Date();
+
+    const postInfos = {
+      postData: {
+        id: postEdit,
+        title,
+        content,
+      },
+      datetime: now,
+      username: user,
+    };
+
+    dispatch(actions.postAction.editPost(postInfos));
+  };
+
+  const handleClose = () => {
+    dispatch(actions.postAction.togglePopup(null, false, 0));
+  }
+
   return (
     <section className={editMode ? "console-edit" : "console"}>
-      <h2>{editMode ? "Edit Item" : "What's on your mind?"}</h2>
+      <div className="console-header">
+        <h2>{editMode ? "Edit Item" : "What's on your mind?"}</h2>
+        {editMode && (
+          <button type="button" onClick={handleClose}>
+            <span className="material-icons-outlined">
+              close
+            </span>
+          </button>
+        )}
+      </div>
       <form className="post-form">
         <label htmlFor="title">
           <span>Title</span>
@@ -74,7 +104,7 @@ const Console = ({editMode}) => {
       <button
         type="button"
         disabled={stateHomepage.isButtonDisabled}
-        onClick={handleClick}
+        onClick={editMode ? handleEdit : handleClick}
       >
         {editMode ? "SAVE" : "CREATE"}
       </button>

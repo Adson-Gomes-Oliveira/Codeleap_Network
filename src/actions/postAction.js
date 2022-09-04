@@ -1,4 +1,4 @@
-import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_POPUP_TYPE } from ".";
+import { CREATE_POST_TYPE, STORE_POST_INPUTS, TOGGLE_POPUP_TYPE, EDIT_POST_TYPE } from ".";
 
 export const storePostInputs = (input) => {
   console.log(input);
@@ -21,9 +21,34 @@ export const createPost = (postInfos) => {
   }
 }
 
-export const togglePopup = (isPopupActive) => {
+export const editPost = (postInfos) => {
+  const { postData, datetime, username } = postInfos;
+  return {
+    type: EDIT_POST_TYPE,
+    post: {
+      ...postData,
+      datetime,
+      username,
+    },
+  }
+}
+
+export const togglePopup = (popupMode, toggle, idEdit) => {
+  const mode = {
+    switch: false,
+    editMode: false,
+    deleteMode: false,
+    unvalidUserMode: false,
+  }
+
+  mode[popupMode] = true;
+
+  if (toggle) mode.switch = true;
+  if (!toggle) mode.switch = false;
+
   return {
     type: TOGGLE_POPUP_TYPE,
-    isPopupActive,
+    isPopupActive: mode,
+    idEdit,
   }
 }
