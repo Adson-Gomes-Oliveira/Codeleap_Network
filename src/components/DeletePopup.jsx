@@ -15,7 +15,7 @@ const DeletePopup = () => {
   }
 
   const handleDelete = () => {
-    dispatch(actions.deletePost(postDelete));
+    dispatch(actions.postAction.deletePost(postDelete));
     dispatch(actions.togglePopup(null, false, 0));
   }
 
