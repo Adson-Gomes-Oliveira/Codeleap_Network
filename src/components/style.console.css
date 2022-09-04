@@ -4,11 +4,11 @@
 
 @layer base {
   .console {
-    @apply my-5 p-7 w-[36rem] border border-gray-400 flex flex-col;
+    @apply my-5 p-7 w-[30rem] xl:w-[36rem] 2xl:w-[50rem] border border-gray-400 flex flex-col;
   }
   
   .console-edit {
-    @apply mt-5 p-7 w-[50%] bg-white flex flex-col;
+    @apply mt-5 p-7 w-[70%] xl:w-[50%] bg-white flex flex-col;
   }
   
   .console-edit .console-header {

@@ -8,7 +8,7 @@
   }
 
   .homepage-body {
-    @apply w-[45%] bg-white flex flex-col items-center;
+    @apply w-full xl:w-[45%] bg-white flex flex-col items-center;
   }
 
   .homepage-body header {
