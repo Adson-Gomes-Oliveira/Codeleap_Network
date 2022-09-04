@@ -4,7 +4,7 @@
 
 @layer base {
   .delete-post-alert {
-    @apply  w-[50%] h-[30%] bg-white flex flex-col items-center justify-evenly;
+    @apply  w-[100%] xl:w-[50%] h-[30%] bg-white flex flex-col items-center justify-evenly;
   }
   
   .delete-post-alert span:first-of-type {
