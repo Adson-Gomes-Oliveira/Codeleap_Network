@@ -1,0 +1,91 @@
+.console {
+  @apply mt-5 p-7 w-[95%] border border-gray-400 flex flex-col;
+}
+
+.console-edit {
+  @apply mt-5 p-7 w-[50%] bg-white flex flex-col;
+}
+
+.console-edit .console-header {
+  @apply flex justify-between items-center;
+}
+
+.console-edit .console-header button {
+  @apply p-0 bg-transparent;
+}
+
+.console-edit .console-header button span {
+  @apply text-black text-2xl font-bold;
+}
+
+.console h2 {
+  @apply text-xl font-bold;
+}
+
+.console-edit h2 {
+  @apply text-xl font-bold;
+}
+
+.console button {
+  @apply px-8 py-[0.40rem] bg-black text-white font-medium self-end;
+}
+
+.console-edit button {
+  @apply px-8 py-[0.40rem] bg-black text-white font-medium self-end;
+}
+
+.console button:disabled {
+  @apply bg-gray-400;
+}
+
+.console-edit button:disabled {
+  @apply bg-gray-400;
+}
+
+.console .post-form {
+  @apply my-5 w-full flex flex-col;
+}
+
+.console-edit .post-form {
+  @apply my-5 w-full flex flex-col;
+}
+
+.console .post-form label {
+  @apply flex flex-col;
+}
+
+.console-edit .post-form label {
+  @apply flex flex-col;
+}
+
+.console .post-form label:first-of-type {
+  @apply mb-3;
+}
+
+.console-edit .post-form label:first-of-type {
+  @apply mb-3;
+}
+
+.console .post-form label span {
+  @apply mb-1 font-semibold;
+}
+
+.console-edit .post-form label span {
+  @apply mb-1 font-semibold;
+}
+
+.console .post-form label input {
+  @apply p-1 border border-gray-400 rounded-sm;
+}
+
+.console-edit .post-form label input {
+  @apply p-1 border border-gray-400 rounded-sm;
+}
+
+.console .post-form label textarea {
+  @apply p-1 border border-gray-400 rounded-sm;
+}
+
+.console-edit .post-form label textarea {
+  @apply p-1 border border-gray-400 rounded-sm;
+}
