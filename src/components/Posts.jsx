@@ -13,7 +13,7 @@ const Posts = ({data}) => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.signUpReducer);
 
-  const { user } = state;
+  const { user, title, content } = state;
   data.sort((a, b) => b.datetime - a.datetime);
 
   const postTime = (datetime) => { // Function for calculate time on posts
@@ -37,12 +37,13 @@ const Posts = ({data}) => {
     }
   }, [])
 
-  const handleEdit = (id) => {
+  const handleEdit = (id, title, content) => {
     const postUser = data.find((post) => post.id === id).username;
     const activeUser = user;
 
     if (postUser === activeUser) {
       dispatch(actions.togglePopup('editMode', true, id));
+      dispatch(actions.postAction.storePostInputs({title, content}));
     }
 
     if (postUser !== activeUser) {
@@ -80,7 +81,7 @@ const Posts = ({data}) => {
                   </span>
                 </button>
   
-                <button type="button" onClick={() => handleEdit(id)}>
+                <button type="button" onClick={() => handleEdit(id, title, content)}>
                   <span className="material-icons-outlined edit-icon">
                     edit
                   </span>
