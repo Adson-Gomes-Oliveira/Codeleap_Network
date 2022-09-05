@@ -1,16 +1,14 @@
 import { 
-  CREATE_POST_TYPE,
-  STORE_POST_INPUTS,
   TOGGLE_BUTTON_TYPE,
   TOGGLE_POPUP_TYPE,
-  EDIT_POST_TYPE,
-  DELETE_POST_TYPE,
-  GET_POST_TYPE,
 } from "../../actions";
 
 import {
+  STORE_POST_INPUTS,
   RESPONSE_POST_GET_TYPE,
   RESPONSE_POST_CREATE_TYPE,
+  RESPONSE_POST_EDIT_TYPE,
+  RESPONSE_POST_DELETE_TYPE,
 } from '../../actions/postAction';
 
 const INITIAL_STATE = {
@@ -57,8 +55,8 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         }],
       }
     }
-    case EDIT_POST_TYPE: {
-      const postTarget = state.post.findIndex((post) => post.id === action.fulfilled.id);
+    case RESPONSE_POST_EDIT_TYPE: {
+      const postTarget = state.post.findIndex((post) => post.id === action.postData.id);
 
       return {
         ...state,
@@ -66,7 +64,7 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         content: '',
         post: [
           ...state.post.slice(0, postTarget),
-          action.fulfilled,
+          action.postData,
           ...state.post.slice(postTarget + 1)
         ],
         postEdit: 0,
@@ -77,8 +75,8 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         }
       }
     }
-    case DELETE_POST_TYPE: {
-      const postArr = state.post.filter((post) => post.id !== action.fulfilled);
+    case RESPONSE_POST_DELETE_TYPE: {
+      const postArr = state.post.filter((post) => post.id !== action.postID);
 
       return {
         ...state,

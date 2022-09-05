@@ -20,8 +20,8 @@ const Homepage = () => {
     dispatch(actions.postAction.getPost());
   }, [dispatch]);
 
-  // const verifyUser = useCallback(() => user.length < 1 && navigate('/'), [user.length, navigate]);
-  // useEffect(() => { verifyUser() }, [verifyUser]);
+  const verifyUser = useCallback(() => user.length < 1 && navigate('/'), [user.length, navigate]);
+  useEffect(() => { verifyUser() }, [verifyUser]);
 
   return (
     <section className="homepage">

@@ -44,16 +44,10 @@ const Console = ({editMode}) => {
   };
 
   const handleEdit = () => {
-    const now = new Date();
-
     const postInfos = {
-      postData: {
-        id: postEdit,
-        title,
-        content,
-      },
-      datetime: now,
-      username: user,
+      id: postEdit,
+      title,
+      content,
     };
 
     dispatch(actions.postAction.editPost(postInfos));

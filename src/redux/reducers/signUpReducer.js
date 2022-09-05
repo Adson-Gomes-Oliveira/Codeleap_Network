@@ -1,4 +1,5 @@
-import { STORE_USER_INPUTS, TOGGLE_BUTTON_TYPE } from '../../actions/index';
+import { TOGGLE_BUTTON_TYPE } from '../../actions/index';
+import { STORE_USER_INPUTS } from '../../actions/userAction';
 
 const INITIAL_STATE = {
   user: '',
