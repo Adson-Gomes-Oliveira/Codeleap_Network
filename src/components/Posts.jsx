@@ -15,11 +15,6 @@ const Posts = ({data}) => {
 
   const { user } = state;
 
-  const dataSorted = data.map((post) => {
-    const newPost = { ...post, created_datetime: new Date(post.created_datetime) }
-    return newPost;
-  }).sort((a, b) => b.created_datetime - a.created_datetime);
-
   const postTime = (datetime) => { // Function for calculate time on posts
     const now = moment(timeNow);
     const past = moment(datetime);
@@ -68,6 +63,11 @@ const Posts = ({data}) => {
     }
   }
 
+  const dataSorted = data.map((post) => {
+    const newPost = { ...post, created_datetime: new Date(post.created_datetime) }
+    return newPost;
+  }).sort((a, b) => b.created_datetime - a.created_datetime);
+  
   return(
     <section className="post-section">
       {dataSorted.map((post) => {
