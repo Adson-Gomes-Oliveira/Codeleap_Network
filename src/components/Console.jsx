@@ -51,11 +51,11 @@ const Console = ({editMode}) => {
     };
 
     dispatch(actions.postAction.editPost(postInfos));
-    dispatch(actions.postAction.storePostInputs({ title: '', content: '' }))
+    dispatch(actions.postAction.storePostInputs({ title: '', content: '' })) // Cleaning inputs after edition
   };
 
   const handleClose = () => {
-    dispatch(actions.togglePopup(null, false, 0));
+    dispatch(actions.togglePopup(null, false, 0)); // Closing popup;
   };
 
   return (

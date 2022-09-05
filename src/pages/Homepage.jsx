@@ -16,12 +16,25 @@ const Homepage = () => {
 
   const { user } = stateUser;
 
-  useEffect(() => {
-    dispatch(actions.postAction.getPost());
-  }, [dispatch]);
+  const TIME_TO_UPDATE_POSTS = 1000 * 60 * 5; // Every five minutes the posts update
 
-  const verifyUser = useCallback(() => user.length < 1 && navigate('/'), [user.length, navigate]);
-  useEffect(() => { verifyUser() }, [verifyUser]);
+  const updatePosts = useCallback(() => { //Timer to update posts
+    return setInterval(() => {
+      dispatch(actions.postAction.getPost());
+    }, TIME_TO_UPDATE_POSTS);
+  }, [dispatch, TIME_TO_UPDATE_POSTS]);
+
+  useEffect(() => { // Get first time and Update posts
+    dispatch(actions.postAction.getPost());
+    const timerToUpdate = updatePosts();
+
+    return () => {
+      clearInterval(timerToUpdate);
+    }
+  }, [dispatch, updatePosts]);
+
+  const checkUser = useCallback(() => user.length < 1 && navigate('/'), [user.length, navigate]); // Checking if any user exists
+  useEffect(() => { checkUser() }, [checkUser]);
 
   return (
     <section className="homepage">

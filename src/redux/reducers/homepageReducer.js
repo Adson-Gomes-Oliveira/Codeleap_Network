@@ -36,6 +36,7 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
       }
     }
     case RESPONSE_POST_GET_TYPE: {
+      console.log(action);
       return {
         ...state,
         post: [...action.postData.results],
