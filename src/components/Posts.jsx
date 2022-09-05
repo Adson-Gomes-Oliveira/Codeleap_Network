@@ -13,7 +13,7 @@ const Posts = ({data}) => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.signUpReducer);
 
-  const { user, title, content } = state;
+  const { user } = state;
   data.sort((a, b) => b.datetime - a.datetime);
 
   const postTime = (datetime) => { // Function for calculate time on posts
@@ -43,7 +43,7 @@ const Posts = ({data}) => {
 
     if (postUser === activeUser) {
       dispatch(actions.togglePopup('editMode', true, id));
-      dispatch(actions.postAction.storePostInputs({title, content}));
+      dispatch(actions.postAction.storePostInputs({ title, content }));
     }
 
     if (postUser !== activeUser) {

@@ -62,6 +62,7 @@ const Console = ({editMode}) => {
     };
 
     dispatch(actions.postAction.editPost(postInfos));
+    dispatch(actions.postAction.storePostInputs({ title: '', content: '' }))
   };
 
   const handleClose = () => {
