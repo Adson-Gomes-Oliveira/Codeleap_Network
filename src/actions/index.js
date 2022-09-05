@@ -1,6 +1,7 @@
 import { storeUserInput } from './userAction';
-import { createPost, storePostInputs, editPost, deletePost } from './postAction';
+import { getPost, createPost, storePostInputs, editPost, deletePost } from './postAction';
 
+export const GET_POST_TYPE = 'GET_POST';
 export const CREATE_USER_TYPE = 'CREATE_USER';
 export const TOGGLE_BUTTON_TYPE = 'TOGGLE_BUTTON';
 export const TOGGLE_POPUP_TYPE = 'TOGGLE_POPUP';
@@ -42,7 +43,7 @@ const actions = {
   togglePopup,
   toggleButton,
   userAction: { storeUserInput },
-  postAction: { createPost, storePostInputs, editPost, deletePost },
+  postAction: { getPost, createPost, storePostInputs, editPost, deletePost },
 }
 
 export default actions;

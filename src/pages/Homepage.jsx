@@ -1,7 +1,8 @@
 import React, { useEffect, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
+import actions from '../actions';
 import Console from '../components/Console';
 import DeletePopup from '../components/DeletePopup';
 import Posts from '../components/Posts';
@@ -9,13 +10,18 @@ import './style.homepage.css';
 
 const Homepage = () => {
   const state = useSelector((state) => state.homepageReducer);
+  const dispatch = useDispatch();
   const stateUser = useSelector((state) => state.signUpReducer);
   const navigate = useNavigate();
 
   const { user } = stateUser;
 
-  const verifyUser = useCallback(() => user.length < 1 && navigate('/'), [user.length, navigate]);
-  useEffect(() => { verifyUser() }, [verifyUser]);
+  useEffect(() => {
+    dispatch(actions.postAction.getPost());
+  }, [dispatch]);
+
+  // const verifyUser = useCallback(() => user.length < 1 && navigate('/'), [user.length, navigate]);
+  // useEffect(() => { verifyUser() }, [verifyUser]);
 
   return (
     <section className="homepage">

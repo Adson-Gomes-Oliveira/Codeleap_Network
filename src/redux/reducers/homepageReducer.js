@@ -5,7 +5,13 @@ import {
   TOGGLE_POPUP_TYPE,
   EDIT_POST_TYPE,
   DELETE_POST_TYPE,
+  GET_POST_TYPE,
 } from "../../actions";
+
+import {
+  RESPONSE_POST_GET_TYPE,
+  RESPONSE_POST_CREATE_TYPE,
+} from '../../actions/postAction';
 
 const INITIAL_STATE = {
   title: '',
@@ -31,27 +37,28 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         content: action.content,
       }
     }
-    case CREATE_POST_TYPE: {
-      let idPost = 1;
-      if (state.post[0]) {
-        idPost = state.post[0].id + 1
+    case RESPONSE_POST_GET_TYPE: {
+      return {
+        ...state,
+        post: [...action.postData.results],
       }
-
+    }
+    case RESPONSE_POST_CREATE_TYPE: {
       return {
         ...state,
         title: '',
         content: '',
-        post: [
-          ...state.post,
-          {
-            ...action.post,
-            id: idPost,
-          }
-        ],
+        post: [...state.post, {
+          content: action.postData.content,
+          created_datetime: action.postData.created_datetime,
+          id: action.postData.id,
+          title: action.postData.title,
+          username: action.postData.username,
+        }],
       }
     }
     case EDIT_POST_TYPE: {
-      const postTarget = state.post.findIndex((post) => post.id === action.post.id);
+      const postTarget = state.post.findIndex((post) => post.id === action.fulfilled.id);
 
       return {
         ...state,
@@ -59,7 +66,7 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         content: '',
         post: [
           ...state.post.slice(0, postTarget),
-          action.post,
+          action.fulfilled,
           ...state.post.slice(postTarget + 1)
         ],
         postEdit: 0,
@@ -71,7 +78,7 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
       }
     }
     case DELETE_POST_TYPE: {
-      const postArr = state.post.filter((post) => post.id !== action.postDelete);
+      const postArr = state.post.filter((post) => post.id !== action.fulfilled);
 
       return {
         ...state,

@@ -14,7 +14,11 @@ const Posts = ({data}) => {
   const state = useSelector((state) => state.signUpReducer);
 
   const { user } = state;
-  data.sort((a, b) => b.datetime - a.datetime);
+
+  const dataSorted = data.map((post) => {
+    const newPost = { ...post, created_datetime: new Date(post.created_datetime) }
+    return newPost;
+  }).sort((a, b) => b.created_datetime - a.created_datetime);
 
   const postTime = (datetime) => { // Function for calculate time on posts
     const now = moment(timeNow);
@@ -66,8 +70,8 @@ const Posts = ({data}) => {
 
   return(
     <section className="post-section">
-      {data.map((post) => {
-        const { id, title, content, datetime, username } = post;
+      {dataSorted.map((post) => {
+        const { id, title, content, created_datetime: datetime, username } = post;
 
         return(
           <div key={uuidv4()} className="post">

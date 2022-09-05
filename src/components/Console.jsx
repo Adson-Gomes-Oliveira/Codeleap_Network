@@ -34,14 +34,9 @@ const Console = ({editMode}) => {
   };
 
   const handleCreate = () => {
-    const now = new Date();
-
     const postInfos = {
-      postData: {
-        title,
-        content,
-      },
-      datetime: now,
+      title,
+      content,
       username: user,
     };
 
