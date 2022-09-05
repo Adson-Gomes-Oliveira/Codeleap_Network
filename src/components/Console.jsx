@@ -34,14 +34,9 @@ const Console = ({editMode}) => {
   };
 
   const handleCreate = () => {
-    const now = new Date();
-
     const postInfos = {
-      postData: {
-        title,
-        content,
-      },
-      datetime: now,
+      title,
+      content,
       username: user,
     };
 
@@ -49,24 +44,18 @@ const Console = ({editMode}) => {
   };
 
   const handleEdit = () => {
-    const now = new Date();
-
     const postInfos = {
-      postData: {
-        id: postEdit,
-        title,
-        content,
-      },
-      datetime: now,
-      username: user,
+      id: postEdit,
+      title,
+      content,
     };
 
     dispatch(actions.postAction.editPost(postInfos));
-    dispatch(actions.postAction.storePostInputs({ title: '', content: '' }))
+    dispatch(actions.postAction.storePostInputs({ title: '', content: '' })) // Cleaning inputs after edition
   };
 
   const handleClose = () => {
-    dispatch(actions.togglePopup(null, false, 0));
+    dispatch(actions.togglePopup(null, false, 0)); // Closing popup;
   };
 
   return (

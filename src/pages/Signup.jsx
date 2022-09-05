@@ -13,7 +13,7 @@ const SignUp = () => {
 
   const { user, isButtonDisabled } = state;
 
-  useEffect(() => { // Activate or eactivate button
+  useEffect(() => { // Activate or deactivate button
     if (isButtonDisabled === true && user.length > 0) {
       dispatch(actions.toggleButton(false));
     }
@@ -24,7 +24,7 @@ const SignUp = () => {
 
   const handleNavigate = () => navigate('/home');
 
-  const handleChange = (event) => {
+  const handleChange = (event) => { // Store inputs
     const { value } = event.target;
     dispatch(actions.userAction.storeUserInput(value));
   };

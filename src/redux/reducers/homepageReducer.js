@@ -1,11 +1,15 @@
 import { 
-  CREATE_POST_TYPE,
-  STORE_POST_INPUTS,
   TOGGLE_BUTTON_TYPE,
   TOGGLE_POPUP_TYPE,
-  EDIT_POST_TYPE,
-  DELETE_POST_TYPE,
 } from "../../actions";
+
+import {
+  STORE_POST_INPUTS,
+  RESPONSE_POST_GET_TYPE,
+  RESPONSE_POST_CREATE_TYPE,
+  RESPONSE_POST_EDIT_TYPE,
+  RESPONSE_POST_DELETE_TYPE,
+} from '../../actions/postAction';
 
 const INITIAL_STATE = {
   title: '',
@@ -31,27 +35,29 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         content: action.content,
       }
     }
-    case CREATE_POST_TYPE: {
-      let idPost = 1;
-      if (state.post[0]) {
-        idPost = state.post[0].id + 1
+    case RESPONSE_POST_GET_TYPE: {
+      console.log(action);
+      return {
+        ...state,
+        post: [...action.postData.results],
       }
-
+    }
+    case RESPONSE_POST_CREATE_TYPE: {
       return {
         ...state,
         title: '',
         content: '',
-        post: [
-          ...state.post,
-          {
-            ...action.post,
-            id: idPost,
-          }
-        ],
+        post: [...state.post, {
+          content: action.postData.content,
+          created_datetime: action.postData.created_datetime,
+          id: action.postData.id,
+          title: action.postData.title,
+          username: action.postData.username,
+        }],
       }
     }
-    case EDIT_POST_TYPE: {
-      const postTarget = state.post.findIndex((post) => post.id === action.post.id);
+    case RESPONSE_POST_EDIT_TYPE: {
+      const postTarget = state.post.findIndex((post) => post.id === action.postData.id);
 
       return {
         ...state,
@@ -59,7 +65,7 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         content: '',
         post: [
           ...state.post.slice(0, postTarget),
-          action.post,
+          action.postData,
           ...state.post.slice(postTarget + 1)
         ],
         postEdit: 0,
@@ -70,8 +76,8 @@ const homepageReducer = (state = INITIAL_STATE, action) => {
         }
       }
     }
-    case DELETE_POST_TYPE: {
-      const postArr = state.post.filter((post) => post.id !== action.postDelete);
+    case RESPONSE_POST_DELETE_TYPE: {
+      const postArr = state.post.filter((post) => post.id !== action.postID);
 
       return {
         ...state,

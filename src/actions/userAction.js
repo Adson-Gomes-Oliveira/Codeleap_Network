@@ -1,4 +1,4 @@
-import { STORE_USER_INPUTS } from ".";
+export const STORE_USER_INPUTS = 'STORE_USER';
 
 export const storeUserInput = (user) => {
   return {
