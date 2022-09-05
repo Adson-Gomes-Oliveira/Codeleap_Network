@@ -8,17 +8,24 @@ export const storePostInputs = (input) => {
   }
 }
 
-export const createPost = (postInfos) => {
-  const { postData, datetime, username } = postInfos;
+// export const createPost = (postInfos) => {
+//   const { postData, datetime, username } = postInfos;
+//   return {
+//     type: CREATE_POST_TYPE,
+//     post: {
+//       ...postData,
+//       datetime,
+//       username,
+//     },
+//   }
+// }
+
+export const createPost = (postData) => {
   return {
     type: CREATE_POST_TYPE,
-    post: {
-      ...postData,
-      datetime,
-      username,
-    },
+    newPost: {...postData},
   }
-}
+};
 
 export const editPost = (postInfos) => {
   const { postData, datetime, username } = postInfos;
