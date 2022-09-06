@@ -19,11 +19,20 @@ const Posts = ({data}) => {
     const now = moment(timeNow);
     const past = moment(datetime);
     const duration = moment.duration(now.diff(past));
-    const totalDuration = duration.asMinutes() < 0;
+    const totalDurationSeconds = duration.asMinutes() < 1;
+    const totalDurationMinutes = duration.asMinutes() >= 1 && duration.asMinutes() <= 60;
+    const totalDurationHours = duration.asHours() >= 1 && duration.asHours() <= 60;
+    const totalDurationDays = duration.asDays() >= 1 && duration.asDays() >= 366;
+    const totalDurationMonths = duration.asMonths() >= 1 && duration.asMonths() <= 12;
+    const totalDurationYears = duration.asYears() >= 1;
 
-    if (totalDuration) return 0
+    if (totalDurationSeconds) return 'Less than one minute';
+    if (totalDurationHours) return `${Math.round(totalDurationHours)} hours ago`;
+    if (totalDurationDays) return `${Math.round(totalDurationDays)} days ago`;
+    if (totalDurationMonths) return `${Math.round(totalDurationMonths)} months ago`;
+    if (totalDurationYears) return `${Math.round(totalDurationYears)} years ago`;
 
-    return duration.asMinutes();
+    return `${Math.round(totalDurationMinutes)} minute(s) ago`;
   }
 
   useEffect(() => { // useEffect for update time on posts
@@ -98,7 +107,7 @@ const Posts = ({data}) => {
               <div className="content-header">
                 <span className="header-username">{`@${username}`}</span>
                 {datetime !== 0 && (
-                  <span className="header-datetime">{`${Math.round(postTime(datetime))} minutes ago`}</span>
+                  <span className="header-datetime">{`${postTime(datetime)}`}</span>
                 )}
               </div>
 
