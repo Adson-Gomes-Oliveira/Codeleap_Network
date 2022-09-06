@@ -22,7 +22,7 @@ const Posts = ({data}) => {
     const totalDurationSeconds = duration.asMinutes() < 1;
     const totalDurationMinutes = duration.asMinutes() >= 1 && duration.asMinutes() <= 60;
     const totalDurationHours = duration.asHours() >= 1 && duration.asHours() <= 24;
-    const totalDurationDays = duration.asDays() >= 1 && duration.asDays() >= 366;
+    const totalDurationDays = duration.asDays() >= 1 && duration.asDays() <= 31;
     const totalDurationMonths = duration.asMonths() >= 1 && duration.asMonths() <= 12;
     const totalDurationYears = duration.asYears() >= 1;
 
