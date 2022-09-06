@@ -20,19 +20,18 @@ const Posts = ({data}) => {
     const past = moment(datetime);
     const duration = moment.duration(now.diff(past));
     const totalDurationSeconds = duration.asMinutes() < 1;
-    const totalDurationMinutes = duration.asMinutes() >= 1 && duration.asMinutes() <= 60;
     const totalDurationHours = duration.asHours() >= 1 && duration.asHours() <= 24;
     const totalDurationDays = duration.asDays() >= 1 && duration.asDays() <= 31;
     const totalDurationMonths = duration.asMonths() >= 1 && duration.asMonths() <= 12;
     const totalDurationYears = duration.asYears() >= 1;
 
     if (totalDurationSeconds) return 'Less than one minute';
-    if (totalDurationHours) return `${Math.round(totalDurationHours)} hour(s) ago`;
-    if (totalDurationDays) return `${Math.round(totalDurationDays)} day(s) ago`;
-    if (totalDurationMonths) return `${Math.round(totalDurationMonths)} month(s) ago`;
-    if (totalDurationYears) return `${Math.round(totalDurationYears)} year(s) ago`;
+    if (totalDurationHours) return `${Math.round(duration.asHours())} hour(s) ago`;
+    if (totalDurationDays) return `${Math.round(duration.asDays())} day(s) ago`;
+    if (totalDurationMonths) return `${Math.round(duration.asMonths())} month(s) ago`;
+    if (totalDurationYears) return `${Math.round(duration.asYears())} year(s) ago`;
 
-    return `${Math.round(totalDurationMinutes)} minute(s) ago`;
+    return `${Math.round(duration.asMinutes())} minute(s) ago`;
   }
 
   useEffect(() => { // useEffect for update time on posts
