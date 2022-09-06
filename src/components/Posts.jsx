@@ -21,16 +21,16 @@ const Posts = ({data}) => {
     const duration = moment.duration(now.diff(past));
     const totalDurationSeconds = duration.asMinutes() < 1;
     const totalDurationMinutes = duration.asMinutes() >= 1 && duration.asMinutes() <= 60;
-    const totalDurationHours = duration.asHours() >= 1 && duration.asHours() <= 60;
+    const totalDurationHours = duration.asHours() >= 1 && duration.asHours() <= 24;
     const totalDurationDays = duration.asDays() >= 1 && duration.asDays() >= 366;
     const totalDurationMonths = duration.asMonths() >= 1 && duration.asMonths() <= 12;
     const totalDurationYears = duration.asYears() >= 1;
 
     if (totalDurationSeconds) return 'Less than one minute';
-    if (totalDurationHours) return `${Math.round(totalDurationHours)} hours ago`;
-    if (totalDurationDays) return `${Math.round(totalDurationDays)} days ago`;
-    if (totalDurationMonths) return `${Math.round(totalDurationMonths)} months ago`;
-    if (totalDurationYears) return `${Math.round(totalDurationYears)} years ago`;
+    if (totalDurationHours) return `${Math.round(totalDurationHours)} hour(s) ago`;
+    if (totalDurationDays) return `${Math.round(totalDurationDays)} day(s) ago`;
+    if (totalDurationMonths) return `${Math.round(totalDurationMonths)} month(s) ago`;
+    if (totalDurationYears) return `${Math.round(totalDurationYears)} year(s) ago`;
 
     return `${Math.round(totalDurationMinutes)} minute(s) ago`;
   }
